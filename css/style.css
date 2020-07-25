@@ -1058,7 +1058,6 @@ ul.social-list li:nth-child(3) a:hover {
     background: url("../img/stats/stats-bg.jpg") no-repeat fixed center;
     background-size: cover;
 }
-
 #stats .content-box-md {
     background: rgba(0, 0, 0, 0.8);
 }
