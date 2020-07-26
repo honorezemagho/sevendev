@@ -90,6 +90,13 @@ section {
   margin-left: -35px;
 }
 
+<<<<<<< HEAD
+=======
+.navbar-brand img{
+    bottom: 10px;
+    max-height: 90px;
+}
+>>>>>>> df07d10c4ba9ff9d84b20ebab268a7540a121a01
 /* =========================================
                 Home
 ============================================ */
@@ -1067,7 +1074,6 @@ img {
   background: url("../img/stats/stats-bg.jpg") no-repeat fixed center;
   background-size: cover;
 }
-
 #stats .content-box-md {
   background: rgba(0, 0, 0, 0.8);
 }
