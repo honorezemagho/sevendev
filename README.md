@@ -4,7 +4,7 @@
 
 Run the command `cp .env.example .env` to copy the basic environment file.
 
-Make sure that you have composer installed in your computer. If not you can chekout this [link](https://getcomposer.org/download/)
+Make sure that you have `composer` installed in your computer. If not you can chekout this [link](https://getcomposer.org/download/)
 
 Run the command `composer install` to install require composer packages.
 
