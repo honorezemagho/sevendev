@@ -1414,7 +1414,7 @@ ul.navbar-nav>li>a:focus {
     padding: 3px 5px;
 }
 nav{
-    position: fixed;
+    position: fixed !important;
 }
 
 /* .display{

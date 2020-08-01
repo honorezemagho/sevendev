@@ -64,7 +64,7 @@
 <!-- Header -->
 <header>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg static-top navbar-fixed-top" style="position:fixed !important">
+  <nav class="nav navbar navbar-expand-lg static-top navbar-fixed-top">
     <div class="container">
         <a class="navbar-brand smooth-scroll" href="#home">
           <img src="./images/Seven Dev Community logo@2x.png" width="150" alt="seven dev logo">
@@ -118,8 +118,6 @@
     <!-- Background Video -->
     <video id="home-bg-video" poster="video/solo.jpg" autoplay loop muted>
         <source src="video/solo.mp4" type="video/mp4">
-        <source src="video/solo.ogv" type="video/ogg">
-        <source src="video/solo.webm" type="video/webm">
     </video>
 
     <!-- Overlay -->
