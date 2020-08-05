@@ -31,6 +31,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}">
 
+    <!-- Botstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="{{ asset('css/owl-carousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl-carousel/owl.theme.default.min.css') }}">
@@ -57,78 +61,54 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="65">
 
-<!-- Preloader -->
-<!-- <div id="preloader">
-    <div id="status">&nbsp;</div>
-</div>  -->
-
 <!-- Header -->
 <header>
-    <nav class="navbar navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="site-nav-wrapper">
-
-                <div class="navbar-header">
-
-                    <!-- Mobile Menu Open Button -->
-                    <span id="mobile-nav-open-btn">&#9776;</span>
-
-                    <!-- Logo -->
-                    <a class="navbar-brand smooth-scroll" href="#home">
-                        <img src="./images/Seven Dev Community logo@2x.png" width="150" alt="logo">
-                    </a>
-                </div>
-
-                <!-- Main Menu -->
-                <div class="container">
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav pull-right">
-                            <li><a class="smooth-scroll" href="#home">Home</a></li>
-                            <li>
-                                <a class="smooth-scroll" href="#events">Event</a>
-                            </li>
-                            <li>
-                                <a class="smooth-scroll" href="#projects">Projects</a>
-                            </li>
-                            <li>
-                                <a href="/register">Membership/Partnership</a>
-                            </li>
-                            <li><a class="smooth-scroll" href="#about">About Us</a></li>
-                            <li><a class="smooth-scroll" href="#blog">Blogs</a></li>
-                            <li><a class="smooth-scroll" href="#contact">Contact</a></li>
-                            <li>
-                                <a  href="#">
-                                    <form class="form-inline my-2 my-lg-0">
-                                        <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                                        <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button> -->
-                                    </form>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Mobile Menu -->
-                <div id="mobile-nav">
-                    <!-- Mobile Menu Close Button -->
-                    <span id="mobile-nav-close-btn">&times;</span>
-
-                    <div id="mobile-nav-content">
-                        <ul class="nav">
-                            <li><a class="smooth-scroll" href="#home">Home</a></li>
-                            <li><a class="smooth-scroll" href="#events">Events</a></li>
-                            <li><a class="smooth-scroll" href="#projects">Projects</a></li>
-                            <li><a href="/register">Membership</a></li>
-                            <li><a class="smooth-scroll" href="#about">About Us</a></li>
-                            <li><a class="smooth-scroll" href="#blog">Blogs</a></li>
-                            <li><a class="smooth-scroll" href="#contactS">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav class="nav navbar navbar-expand-lg static-top navbar-fixed-top">
+    <div class="container">
+        <a class="navbar-brand smooth-scroll" href="#home">
+          <img src="./images/Seven Dev Community logo@2x.png" width="150" alt="seven dev logo">
+        </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link smooth-scroll" href="#home">Home
+                <span class="sr-only">(current)</span>
+            </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link smooth-scroll" href="#about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link smooth-scroll" href="#events">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link smooth-scroll" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link smooth-scroll" href="/register">Membership/Partnership</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link smooth-scroll" href="#blog">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link smooth-scroll" href="#contact">Contact</a>
+        </li>
+        <li class="nav-item">
+            <a  href="#">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                    <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button> -->
+                 </form>
+            </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 </header>
 <!-- Header Ends -->
 
@@ -138,8 +118,6 @@
     <!-- Background Video -->
     <video id="home-bg-video" poster="video/solo.jpg" autoplay loop muted>
         <source src="video/solo.mp4" type="video/mp4">
-        <source src="video/solo.ogv" type="video/ogg">
-        <source src="video/solo.webm" type="video/webm">
     </video>
 
     <!-- Overlay -->
@@ -1705,7 +1683,7 @@
             <div id="map">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.891281272854!2d9.69340611408954!3d4.042602348139304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1061138910bc3aff%3A0x7b5d5c6ad0bcf7f!2sSeven%20Advanced%20Academy!5e0!3m2!1sen!2scm!4v1595807578082!5m2!1sen!2scm"
-                    width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                    width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="true"
                     aria-hidden="false" tabindex="0">
                 </iframe>
             </div>
@@ -1805,6 +1783,18 @@
 
 <!-- Bootstrap JS -->
 <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
+
+<!-- Bootsrtap CDN JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
 
 <!-- Owl Carousel JS -->
 <script src="js/owl-carousel/owl.carousel.min.js"></script>

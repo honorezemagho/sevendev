@@ -1413,27 +1413,6 @@ ul.navbar-nav>li>a:focus {
     font-size: 15px;
     padding: 3px 5px;
 }
-
-/* .display{
-    margin-top: 5%;
-    margin-bottom: 3%;
-} */
-
-/* .summer:hover .dropdown{
-    display: block;
-
+nav{
+    position: fixed !important;
 }
-@keyframes slide{
-    0%{
-        opacity: 0;
-        height: 0;
-    }
-    50%{
-        opacity: 0.5;  background: #fff;
-        height: 35px;
-    }
-    100%{
-        opacity: 1;
-        height: 70px;
-    }
-} */
