@@ -23,9 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \URL::forceRootUrl(\Config::get('app.url'));
-        if (\Str::contains(\Config::get('app.url'), 'https://')) {
+         if($this->app->environment() == 'production' || 'local') {
             \URL::forceScheme('https');
+            \URL::forceRootUrl(\Config::get('app.url'));
         }
     }
 }
