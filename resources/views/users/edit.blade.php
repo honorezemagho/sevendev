@@ -1,55 +1,69 @@
-@extends('adminlte::auth.auth-page', ['auth_type' => 'register'])
+@extends('adminlte::page')
 
-@php( $login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login') )
-@php( $register_url = View::getSection('register_url') ?? config('adminlte.register_url', 'register') )
+@section('title', 'SEVENDEV COMMUNITY')
 
-@if (config('adminlte.use_route_url', false))
-    @php( $login_url = $login_url ? route($login_url) : '' )
-    @php( $register_url = $register_url ? route($register_url) : '' )
-@else
-    @php( $login_url = $login_url ? url($login_url) : '' )
-    @php( $register_url = $register_url ? url($register_url) : '' )
-@endif
+@section('content_header')
+    <h1 class="m-0 text-dark text-center pt-2 pb-2">Edit Profile</h1>
+@stop
 
-@section('auth_header', __('adminlte::adminlte.register_message'))
-
-@section('auth_body')
-
-              {{-- <form role="form">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
+@section('content')
+    <div class="row">
+            <div class="col-md-6">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header bg-info">
+                <h3 class="widget-user-username ">{{$user->firstname}} {{$user->lastname}}</h3>
+                <h5 class="widget-user-desc">{{$user->role->name}}</h5>
+              </div>
+              <div class="widget-user-image">
+                <img src="{{Avatar::create($user->firstname)}}" alt="User Avatar" class="img-circle elevation-2">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">Username</h5>
+                      <span class="description-text">{{$user->username}}</span>
                     </div>
+                    <!-- /.description-block -->
                   </div>
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">Email</h5>
+                      <span class="description-text">{{$user->email}}</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">Phone</h5>
+                      <span class="description-text">{{$user->phone}}</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
                 </div>
-              </form> --}}
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
 
-    <form action="{{ $register_url }}" method="post" role="form">
-        {{ csrf_field() }}
+                  <div class="col-md-6">
+            <div class="card">
+  <div class="card-body">
+      <form action="{{route('users.update', $user->id)}}" method="post" class="form">
+            {{ csrf_field() }}
+            {{ method_field('patch') }}
 
-        {{-- Name field --}}
+    {{-- Name field --}}
         <div class="form-group mb-3">
              <label for="firstname">Firstame: </label>
             <input type="text" name="firstname" id="firstname" class="form-control {{ $errors->has('firstname') ? 'is-invalid' : '' }}"
-                   value="{{ old('firstname') }}" placeholder="Enter Firstname" autofocus>
+                   value="{{  $user->firstname  ?? old('firstname') }}" placeholder="Enter Firstname" autofocus>
             @if($errors->has('firstname'))
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('lastname') }}</strong>
@@ -61,7 +75,7 @@
         <div class="form-group mb-3">
             <label for="lastname">Lastname: </label>
             <input type="text" name="lastname" class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
-                   value="{{ old('lastname') }}" placeholder="Enter Lastname" autofocus>
+                   value="{{ $user->lastname  ?? old('lastname') }}" placeholder="Enter Lastname" autofocus>
             @if($errors->has('lastname'))
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('lastname') }}</strong>
@@ -73,7 +87,7 @@
         <div class="form-group mb-3">
             <label for="username">Username: </label>
             <input type="text" name="username" class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}"
-                   value="{{ old('username') }}" placeholder="Enter a Username" autofocus>
+                   value="{{  $user->username  ?? old('username') }}" placeholder="Enter a Username" autofocus>
             @if($errors->has('username'))
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('username') }}</strong>
@@ -85,7 +99,7 @@
         <div class="form-group mb-3">
             <label for="email">Email: </label>
             <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                   value="{{ old('email') }}" placeholder="Enter Email" autofocus>
+                   value="{{  $user->email  ?? old('email') }}" placeholder="Enter Email" autofocus >
             @if($errors->has('email'))
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('email') }}</strong>
@@ -97,7 +111,7 @@
         <div class="form-group mb-3">
             <label for="phone">Phone: </label>
             <input type="tel" name="phone" class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}"
-                   value="{{ old('phone') }}" placeholder="Phone without space" autofocus>
+                   value="{{  $user->phone  ?? old('phone') }}" placeholder="Phone without space" autofocus disabled>
             @if($errors->has('phone'))
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('phone') }}</strong>
@@ -108,12 +122,12 @@
           {{-- Role field --}}
         <div class="form-group mb-3">
                 <label for="role_id">Registered As : </label>
-            <select class="custom-select" name="role_id" id="role_id">
-                <option value="">Choose a Role</option>
-                <option value="1">Member</option>
-                <option value="2">Mentor</option>
-                <option value="3">Sponsor</option>
-                <option value="4">Patron/Matron</option>
+            <select class="custom-select" name="role_id" id="role_id" >
+                <option value="" >Choose a Role</option>
+                <option value="1" {{ old('role_id', $user->role_id) == 1 ? 'selected' : '' }}>Member</option>
+                <option value="2" {{ old('role_id', $user->role_id) == 2 ? 'selected' : '' }}>Mentor</option>
+                <option value="3" {{ old('role_id', $user->role_id) == 3 ? 'selected' : '' }}>Sponsor</option>
+                <option value="4" {{ old('role_id', $user->role_id) == 4 ? 'selected' : '' }}>Patron/Matron</option>
             </select>
             @if($errors->has('role_id'))
                 <div class="invalid-feedback">
@@ -125,10 +139,10 @@
              {{-- Gender field --}}
         <div class="form-group mb-3">
                 <label for="phone">Gender : </label>
-            <select class="custom-select" name="gender" id="gender">
+            <select class="custom-select" name="gender" id="gender" disabled>
                 <option value="">Choose a Gender</option>
-                <option value="male">Male</option>
-                <option value="male">Female</option>
+                <option value="male" {{ old('gender', $user->gender) == 'male' ? 'selected' : '' }}>Male</option>
+                <option value="female" {{ old('gender', $user->gender) == 'female' ? 'selected' : '' }}>Female</option>
             </select>
             @if($errors->has('gender'))
                 <div class="invalid-feedback">
@@ -167,26 +181,12 @@
 
         {{-- Register button --}}
         <button type="submit" class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
-            <span class="fas fa-user-plus"></span>
-            {{ __('adminlte::adminlte.register') }}
+           Update
         </button>
-
-    </form>
-@stop
-
-@section('auth_footer')
-<div class="row">
-    <p class="my-0 col-md-6">
-            <a href="{{ $login_url }}">
-                {{ __('adminlte::adminlte.i_already_have_a_membership') }}
-            </a>
-        </p>
-
-        <p class="my-0 col-md-6">
-            <a href="{{ url('/') }}">
-            Return Home
-            </a>
-    </p>
+        </form>
+  </div>
 </div>
-
+<!-- /.card -->
+        </div>
+    </div>
 @stop

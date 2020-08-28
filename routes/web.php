@@ -17,16 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/register', function () {
-//     return view('register');
-// });
+Route::resource('/users', 'AdminUsersController');
+Route::get('account/user-edit/profile', 'AdminUsersController@profile')->name('user.profile');
 
-// Route::get('/login', function () {
-//     return view('login');
-// });
 
 Auth::routes();
 
-Route::get('/home', function() {
+Route::get('/home', function () {
     return view('home');
 })->name('home')->middleware('auth');

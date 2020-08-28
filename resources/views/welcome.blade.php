@@ -89,7 +89,7 @@
           <a class="nav-link smooth-scroll" href="#projects">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link smooth-scroll" href="/register">Membership/Partnership</a>
+          <a class="nav-link" href="{{ route('register') }}">Membership/Partnership</a>
         </li>
         <li class="nav-item">
           <a class="nav-link smooth-scroll" href="#blog">Blog</a>

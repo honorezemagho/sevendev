@@ -82,15 +82,24 @@
             <a href="{{ $password_reset_url }}">
                 {{ __('adminlte::adminlte.i_forgot_my_password') }}
             </a>
-        </p>
+        </p><br>
     @endif
 
     {{-- Register link --}}
     @if($register_url)
-        <p class="my-0">
-            <a href="{{ $register_url }}">
-                {{ __('adminlte::adminlte.register_a_new_membership') }}
-            </a>
-        </p>
+
+ <div class="row">
+    <p class="my-0 col-md-6">
+        <a href="{{  $register_url }}">
+           {{ __('adminlte::adminlte.register_a_new_membership') }}
+        </a>
+    </p>
+
+    <p class="my-0 col-md-6">
+        <a href="{{ url('/') }}">
+            Return Home
+        </a>
+    </p>
+</div>
     @endif
 @stop
